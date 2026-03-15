@@ -6,7 +6,7 @@ import { BodyComponent } from './components/common/body/body';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, BodyComponent],
+  imports: [ HeaderComponent, BodyComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
