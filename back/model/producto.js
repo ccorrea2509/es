@@ -5,7 +5,7 @@ const Producto = {};
 // Obtener todos los productos
 Producto.getAll = async () => {
   const result = await pool.query("SELECT * FROM productos"); 
-  console.log(result.rows);
+  return result.rows;
 
 };
 

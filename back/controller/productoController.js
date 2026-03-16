@@ -2,9 +2,15 @@ const Producto = require('../model/producto.js');
 
 //const productoController = {};
 // Listar todos los productos
-exports.crearProducto = (req, res) => {
+exports.crearProducto = async(req, res) => {
     // Lógica para crear un producto
-    console.log(req.body); // Asegúrate de que el cuerpo de la solicitud se esté recibiendo correctamente
+    console.log(req.body); 
+  try {
+    const nuevoProducto = await Producto.create(req.body);
+    res.status(201).json(nuevoProducto);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 };
 
 exports.obtenerProductos = async (req, res) => {
