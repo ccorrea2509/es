@@ -1,6 +1,24 @@
-const express = require('express');
+/*const express = require('express');
+const router = express.Router();
+const productoController = require('../controller/productoController.js');
 
-const route = express.Router();
-route.get('/', (req, res) => {
-    res.send('¡Hola, mundo!');
-}
+router.post('/', productoController.crearProducto);
+router.get('/', productoController.obtenerProductos);
+
+
+module.exports = router;*/
+const express = require('express');
+const router = express.Router();
+const productoController = require('../controller/productoController.js');
+
+// Rutas CRUD
+
+router.get('/', productoController.obtenerProductos);
+router.post('/', productoController.crearProducto);
+//router.get('/', productoController.getAll);
+/*router.get('/:id', productoController.getById);
+router.post('/', productoController.create);
+router.put('/:id', productoController.update);
+router.delete('/:id', productoController.delete);*/
+
+module.exports = router;
