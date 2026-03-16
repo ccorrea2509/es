@@ -1,1 +1,37 @@
-<p>crearproducto works!</p>
+<div class="container mt-4">
+  <h2>Crear Producto</h2>
+  <form [formGroup]="form" (ngSubmit)="enviarProducto()">
+    
+    <div class="mb-3">
+      <label class="form-label">SKU</label>
+      <input type="text" class="form-control" formControlName="sku">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Categoría</label>
+      <input type="text" class="form-control" formControlName="categoria">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Precio</label>
+      <input type="number" class="form-control" formControlName="precio" min="0">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Stock Actual</label>
+      <input type="number" class="form-control" formControlName="stock_actual" min="0">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Stock Mínimo</label>
+      <input type="number" class="form-control" formControlName="stock_minimo" min="0">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear Producto</button>
+  </form>
+</div>

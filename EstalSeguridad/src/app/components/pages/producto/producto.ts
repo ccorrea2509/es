@@ -1,6 +1,7 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
 import { NgFor } from '@angular/common'; // 👈 necesario para *ngFor
 import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 interface Producto {
   id: number;
@@ -15,7 +16,7 @@ interface Producto {
 @Component({
   selector: 'app-producto',
   standalone: true,
-  imports: [ NgFor], // 👈 agregar NgFor
+  imports: [ NgFor,RouterLink], // 👈 agregar NgFor
   templateUrl: './producto.html',
   styleUrls: ['./producto.css']
 })
