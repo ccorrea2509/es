@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute ,Router} from '@angular/router';
 
 @Component({
   selector: 'app-editarproducto',
@@ -15,6 +15,7 @@ export class EditarProductoComponent implements OnInit {
   private fb = inject(FormBuilder); // 👈 inject FormBuilder correctamente
   private http = inject(HttpClient);
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   form!: FormGroup; // 👈 inicializamos en ngOnInit
   productoId!: string;
@@ -46,7 +47,9 @@ export class EditarProductoComponent implements OnInit {
       const producto = this.form.value;
       this.http.put(`http://localhost:3000/api/productos/${this.productoId}`, producto)
         .subscribe({
-          next: (res) => alert('Producto actualizado con éxito'),
+          next: (res) => {alert('Producto actualizado con éxito');
+            this.router.navigate(['/productos']);
+          },
           error: (err) => console.error(err)
         });
     } else {

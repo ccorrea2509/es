@@ -10,6 +10,20 @@ export const crearProducto = async (req, res) => {
   }
 };
 
+
+export const updateProducto = async (req, res) => {
+  const { id } = req.params; // obtenemos el id de la ruta
+  try {
+    const producto = await Producto.getByIdUpdate(id,req.body);
+    if (!producto) {
+      return res.status(404).json({ error: 'Producto no encontrado' });
+    }
+    res.json(producto);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 export const editarProducto  = async (req, res) => {
   const { id } = req.params; // obtenemos el id de la ruta
   try {
@@ -26,6 +40,15 @@ export const editarProducto  = async (req, res) => {
 export const obtenerProductos = async (req, res) => {
   try {
     const productos = await Producto.getAll();
+    res.json(productos);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+export const obtenerStock = async (req, res) => {
+  try {
+    const productos = await Producto.obtenerStock();
     res.json(productos);
   } catch (err) {
     res.status(500).json({ error: err.message });

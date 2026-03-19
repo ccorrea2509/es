@@ -15,12 +15,14 @@ router.delete('/:id', productoController.delete);
 
 module.exports = router;*/
 import express from 'express';
-import { crearProducto, obtenerProductos,editarProducto } from '../controller/productoController.js'; 
+import { crearProducto, obtenerProductos,editarProducto,obtenerStock,updateProducto } from '../controller/productoController.js'; 
 
 const router = express.Router();
 
 router.get('/', obtenerProductos);
 router.post('/', crearProducto);
+router.get('/obtenerStock', obtenerStock);
 router.get('/:id', editarProducto);
+router.put('/:id', updateProducto);
 
 export default router;
