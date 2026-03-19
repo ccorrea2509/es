@@ -2,6 +2,7 @@ import { Component, OnInit, signal, inject } from '@angular/core';
 import { NgFor } from '@angular/common'; // 👈 necesario para *ngFor
 import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
+import generatePDF from '../../pdf/pdf'; // 👈 importar función de generación de PDF
 
 interface Producto {
   id: number;
@@ -32,6 +33,18 @@ export class ProductoComponent implements OnInit {
         error: (err) => console.error(err)
       });
       
+  }
+
+  ongenerarPDF() {
+    //productos
+    const fecha = new Date().toLocaleDateString();
+    const reciboNo = Math.floor(Math.random() * 1000000).toString();
+    const products = this.productos().map(p => ({
+      nombre: p.nombre,
+      cantidad: p.stock_actual, // 👈 aquí decides qué usar como cantidad
+      total: p.precio           // 👈 o puedes multiplicar si quieres
+    }));
+    generatePDF(products, reciboNo, fecha);
   }
   
 }
