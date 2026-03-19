@@ -23,7 +23,7 @@
       <td> ${{ p.precio }} </td>
       <td> {{ p.stock_actual }} </td>
       <td> {{ p.stock_minimo }} </td>
-      <td><a routerLink="/editar_producto/{{ p.id }}" class="btn btn-primary">edit</a><a class="btn btn-danger">Eliminar</a></td>
+      <td><a [routerLink]="['/editar_producto', p.id]" class="btn btn-primary">edit</a><a class="btn btn-danger">Eliminar</a></td>
     </tr>
     
   </tbody>

@@ -2,6 +2,15 @@
 import pool from '../database/connectionPostgreSQL.js';
 
 export const Producto = {
+  getById: async (id) => {
+    try {
+      const result = await pool.query('SELECT * FROM productos WHERE id = $1', [id]);
+      return result.rows[0]; // devuelve un solo producto
+    } catch (err) {
+      console.error('Error al obtener producto por id:', err);
+      throw err;
+    }
+  },
   getAll: async () => {
     try {
       const result = await pool.query('SELECT * FROM productos');
