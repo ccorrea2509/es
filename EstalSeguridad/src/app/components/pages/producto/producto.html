@@ -11,7 +11,7 @@
       <th scope="col">PRECIO</th>
       <th scope="col">STOCK ACTUAL</th>
       <th scope="col">MIN STOCK</th>
-      <th scope="col"></th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -23,7 +23,7 @@
       <td> ${{ p.precio }} </td>
       <td> {{ p.stock_actual }} </td>
       <td> {{ p.stock_minimo }} </td>
-      <td><button class="btn btn-primary"><i class="fa-solid fa-house"></i></button></td>
+      <td><a routerLink="/editar_producto/{{ p.id }}" class="btn btn-primary">edit</a><a class="btn btn-danger">Eliminar</a></td>
     </tr>
     
   </tbody>
