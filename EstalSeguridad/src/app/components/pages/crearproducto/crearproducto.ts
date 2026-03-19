@@ -22,7 +22,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './crearproducto.css',
 })
 export class CrearProductoComponent {
-
   form: FormGroup;
   private http = inject(HttpClient);
 

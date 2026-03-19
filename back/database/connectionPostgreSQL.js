@@ -1,4 +1,5 @@
-const { Pool } = require('pg'); // usar require, no import si tu proyecto es CommonJS
+import pkg from 'pg';
+const { Pool } = pkg;
 
 const pool = new Pool({
   user: 'postgres',
@@ -8,5 +9,5 @@ const pool = new Pool({
   port: 5433,
 });
 
-module.exports = pool;
+export default pool;
 
